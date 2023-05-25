@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Tebak Angka</title>
+</head>
+<body>
+    <!-- Menambahkan video YouTube ke dalam game -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/[zr1eWErGitk]?autoplay=1&loop=1" frameborder="0" allowfullscreen></iframe>
+    
+    <h1>Game Tebak Angka</h1>
+    <p>Hai, apa nama kamu?</p>
+    <input type="text" id="name">
+    <button onclick="startGame()">Mulai Permainan</button>
+    
+    <script>
+        function startGame() {
+            // Mendapatkan nama dari input name
+            var name = document.getElementById("name").value;
+            // Menghasilkan nomor acak antara 1 dan 20
+            var number = Math.floor(Math.random() * 20) + 1;
+            // Mencetak pesan sambutan dan instruksi untuk pengguna
+            alert("Hai " + name + ", Aku punya sebuah angka di antara 1 dan 20. Coba tebak ya!");
+        
+            // Mulai loop permainan
+            for (var i = 1; i <= 6; i++) {
+                // Minta tebakan dari pengguna
+                var guess = prompt("Tebakanmu:");
+                // Evaluasi tebakan
+                if (guess < number) {
+                    alert("Terlalu rendah!");
+                } else if (guess > number) {
+                    alert("Terlalu tinggi!");
+                } else {
+                    break;
+                }
+            }
+        
+            // Keluar dari loop permainan dan mencetak hasil akhir
+            if (guess == number) {
+                alert("Bagus sekali, " + name + "! Kamu menebak benar dengan " + i + " kali tebakan.");
+            } else {
+                alert("Maaf, kesempatanmu sudah habis. Angka yang aku pikirkan adalah " + number + ".");
+            }
+        }
+    </script>
+</body>
+</html>
